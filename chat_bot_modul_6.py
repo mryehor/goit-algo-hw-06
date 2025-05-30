@@ -47,9 +47,8 @@ class Record:
             raise ValueError(f"Phone number {old_phone} not found.")
     
     def find_phone(self, phone: str):
-        phone_digits = ''.join(filter(str.isdigit, phone))
         for p in self.phones:
-            if p.value == phone_digits:
+            if p.value == phone:
                 return p
         return None
     
