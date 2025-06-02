@@ -14,11 +14,10 @@ class Name(Field):
 class Phone(Field):
     # реалізація класу
     def __init__(self, value):
-        phone_only_numbers =  ''.join(filter(str.isdigit, value))
-
-        if len(phone_only_numbers) != 10:
+        
+        if not (value.isdigit() and len(value) == 10):
              raise ValueError("Номер телефону повинен містити рівно 10 цифр.")
-        super().__init__(phone_only_numbers)
+        super().__init__(value)
 
     def __str__(self):
          return self.value
